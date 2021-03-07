@@ -39,6 +39,16 @@ Simply another RESTFul API and SPA to manage a small business, or Pyme, as it's 
 ├── manage.py
 ├── Pipfile
 └── README.md
+└── stores
+    ├── admin.py
+    ├── apps.py
+    ├── __init__.py
+    ├── migrations
+    │   ├── 0001_initial.py
+    │   └── __init__.py
+    ├── models.py
+    ├── tests.py
+    └── views.py
 
 ```
 
