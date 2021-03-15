@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     # 3rd party app
     'rest_framework',
+    'django_filters',
     
     # local apps    
     'accounts.apps.AccountsConfig',
@@ -132,3 +133,15 @@ STATIC_URL = '/static/'
 
 # Configure the User Model by default
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+REST_FRAMEWORK = {
+    # Global pagination settings
+    'DEFAULT_PAGINATION_CLASS': 'stores.pagination.HeaderLimitOffsetPagination',
+    'PAGE_SIZE': 5,
+    # Global filter backends
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.OrderingFilter',
+        'rest_framework.filters.SearchFilter',
+    ),
+}
