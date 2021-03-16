@@ -4,21 +4,21 @@ from django.core.validators import MinValueValidator
 
 
 class City(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     
     def __str__(self) -> str:
         return "{}".format(self.name)
     
 
 class District(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     
     def __str__(self) -> str:
         return "{}".format(self.name)
     
     
 class PointOfSale(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     address = models.CharField(max_length=50)
     zip_code = models.CharField(max_length=12)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
@@ -33,14 +33,14 @@ class Seller(models.Model):
     first_name = models.CharField(max_length=20)
     middle_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    seller_id = models.CharField(max_length=5)
+    seller_id = models.CharField(max_length=5, unique=True)
     
     def __str__(self) -> str:
         return "{} {}".format(self.first_name, self.last_name)   
     
 
 class Product(models.Model):
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=80, unique=True)
     reference = models.CharField(max_length=10)
     brand = models.CharField(max_length=20)
     price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(0)])
@@ -63,7 +63,7 @@ class Customer(models.Model):
                              on_delete=models.CASCADE,
                              related_name='cities'
                              )
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     phone = models.CharField(max_length=15)
     
     def __str__(self) -> str:
