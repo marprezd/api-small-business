@@ -45,9 +45,13 @@ Simply another RESTFul API and SPA to manage a small business, or Pyme, as it's 
     ├── __init__.py
     ├── migrations
     │   ├── 0001_initial.py
+    │   ├── 0002_auto_20210316_1412.py
     │   └── __init__.py
     ├── models.py
+    ├── pagination.py
+    ├── serializers.py
     ├── tests.py
+    ├── urls.py
     └── views.py
 
 ```
